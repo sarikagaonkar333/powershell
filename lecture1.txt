@@ -1,0 +1,78 @@
+﻿
+(Get-Process).ProcessName
+Get-Process|select *
+Get-Process|FL *
+Get-Process|Format-Table processname,id
+Get-Process|Format-Table process,id
+Get-Process|Get-Member
+Get-Process
+"Ash"|Get-Member
+"Ashwini".Contains("Ash")
+"my name is nancy".IndexOf("n",0)
+"This is IAC".IndexOf("i")
+"This is IAC".Replace("IAC","MYIAC")
+"this is iac".Length{get;}
+"this is ICA".Length
+Get-Process|Format-Table process,id
+Get-Command *SERVICE*
+Get-Command -Noun SERVICE
+Get-Command -Verb get
+Get-Command -Module DISM
+Restart-Service BITS
+Get-Service BITS
+Stop-Service BITS
+Get-Service BITS
+Get-Help Get-Service
+Get-Help Get-Service -ShowWindow
+Get-Help Get-Service -Online
+Get-Help Get-Process -Online
+Get-Process -IncludeUserName
+Get-Command *child*
+Get-Command *childitem*
+Get-Command -Noun childitem
+Get-ChildItem
+Get-Help Get-ChildItem -ShowWindow
+Get-ChildItem C:\Windows\ *.dll -Recurse
+Get-ChildItem C:\Windows\ -Include *.dll -Recurse|Measure-Object
+Get-ChildItem -Path C:\Windows -Include *.dll -Recurse|Measure-Object
+Get-ChildItem C:\Windows -Recurse|Measure-Object
+(Get-ChildItem -Path C:\Windows -Include *.dll -Recurse|Measure-Object).Count
+ls
+ls
+Get-Alias
+dir
+no
+get-help New-Alias -Examples
+get-help New-Alias -Online
+New-Alias -Name no -Value notepad
+New-Alias -Value Get-Process -Name gpss
+gpss
+get-help Get-Service 
+Get-PSProvider
+Get-Command -Noun Filesystem
+get-command -Noun file
+CD HKLM:
+Get-ChildItem CD HKLM:
+Get-ChildItem
+
+CD C:
+CD Env:
+Get-ChildItem
+Get-Item -Path
+Get-Item .\Path
+cd cert:
+Get-ChildItem cert:
+Get-Item .\\CurrentUser
+cd HKLM:
+Get-Item -Path HKLM\software
+
+Get-Item .\SOFTWARE
+Get-ItemProperty
+Get-Help Get-ItemProperty -ShowWindow
+Get-ItemProperty .\SYSTEM
+cd C:
+Get-ItemProperty C:\Windows
+Get-ItemProperty C:\Windows| FL *
+CD env:
+New-Item -Name myname -Value ash
+Get-ChildItem

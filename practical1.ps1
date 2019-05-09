@@ -25,6 +25,7 @@ Get-ChildItem -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Adv
 
 cd HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\
 
+
 get-help Set-ItemProperty -Online
 
 Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\ -Name DontPrettyPath -Value 1
@@ -33,7 +34,15 @@ Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\
 
 # create a new directory called  c:\demo
 
-New-Item -Path c:\Demo -ItemType Directory
+$currentMonth = Get-Date -UFormat %m
+
+$currentMonth = (Get-Culture).DateTimeFormat.GetMonthName($currentMonth)
+
+New-Item -Path D:\Agreement -ItemType Directory -Name $currentMonth
+
+
+
+
 
 ============================================================================================================
 
@@ -67,6 +76,34 @@ cd C:\Demo
  Get-ChildItem -Path C:\Users\SARIKA~1\AppData\Local\Temp
 
  (Get-ChildItem -Path C:\Users\SARIKA~1\AppData\Local\Temp| Measure-Object).Count
+cd HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced 
+
+ cd 
+
+ set-ItemProperty HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name DontPrettyPath -Value 0
+
+ Get-ItemProperty HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name DontPrettyPath 
 
 
+ 
+ get-help Set-ItemProperty -online 
 
+
+ cd 
+ 
+ (Get-ChildItem -Path c:\ -Include "*.txt"|Measure-Object).Count
+
+ (Get-ChildItem d:\ *.dll -Recurse |Measure-Object).Count
+
+ Get-Help fl -Online
+
+ get-help Get-Service -online
+
+ Get-Service |Format-List -Property Status{stopped}
+
+(get-service|?{ $_.Status -eq "Stopped" -and $_.StartType -eq "Automatic"})|
+select DisplayName, StartType, Status
+
+Get-Service|?{_.Status -eq "Stopped"}
+
+Get-Help -recurse|Measure-Object -online
